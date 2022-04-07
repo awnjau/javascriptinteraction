@@ -1,0 +1,18 @@
+body {
+  background-color: #FFA07A;
+  margin: 200px;
+  padding: 100px;
+  border: 10px;
+  border-style:dotted;
+  color: Sienna;
+  font-family: 'BIZ UDPGothic', sans-serif;
+  font-size: 50px;
+}
+
+input, button {
+  font-size: 20px;
+  margin: 1vw;
+  background-color: Cornsilk;
+  color: Sienna;
+  font-family: 'BIZ UDPGothic', sans-serif;
+}

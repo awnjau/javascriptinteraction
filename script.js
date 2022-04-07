@@ -1,48 +1,35 @@
 var outputText;
 var complimentInput;
-var restyleButton;
-var halfButton;
 var complimentButton;
-var halfInput;
-var complimentOutput;
 
-var complimentPhrase =["you're beautiful, inside and out","trust yourself, you know what you're doing", "you're the smartest person I know","you're extremely talented","oh how wise you are", "your kindess is your greatest strength"
+var complimentPhrase =["you're beautiful, inside and out","that outfit is giving", "you're the smartest person I know","you're extremely talented","oh how wise you are", "your kindess is your greatest strength", "you give good vibes","you're so refined"];
 
 document.addEventListener("DOMContentLoaded",function(){
-  outputText = document.getElementById('outputText');
-  restyleButton = document.getElementById("restyle-button");
+  outputText = document.getElementById('output-text');
   complimentInput = document.getElementById("compliment-input");
-  halfButton = document.getElementById("half-button");
   complimentButton = document.getElementById("compliment-button");
-  halfInput = document.getElementById("half-input");
-  complimentOutput = document.getElementById("compliment-output");
 
-
-halfButton.addEventListener("click",function(){
-  var halfOutput = halfInput.value;
-    halfNumber(halfOutput);
-});
-
-complimentButton.addEventListener("click",function(){
-  var complimentOutput = complimentInput.value;
-  compliment(complimentOutput);
-});
+  complimentButton.addEventListener("click",function(){
+    var complimentOutput = complimentInput.value;
+    compliment(complimentOutput);
+  });
 
 });
 
-  function halfNumber(num){
-    var halfNum = num / 2;
-    alert(halfNum);
-    console.log("Half of " + num.toString() + " is " + halfNum.toString());
-  }
+ function compliment(incomingName){
+   var random = [Math.floor(Math.random()*complimentPhrase.length)];
+   outputText.innerText = incomingName + ', ' + complimentPhrase[random] + "!";
+   restyle();
+ }
 
-
-   function compliment(){
-     var complimentPhrase =["you're beautiful, inside and out","trust yourself, you know what you're doing", "you're the smartest person I know","you're extremely talented","oh how wise you are", "your kindess is your greatest strength"
-     random = [Math.floor(Math.random()*complimentPhrase.length)];
-     var output = document.getElementById('outputText');
-     var currentInputText=complimentInput.value;
-     output.style.fontSize="45px";
-     output.style.color= "#810EF5";
-     output.innerHTML= currentInputText + ',' + complimentPhrase[random];
-}
+ function restyle() {
+   var randomRed = Math.floor(Math.random()*290);
+   var randomGreen = Math.floor(Math.random()*90);
+   var randomBlue= Math.floor(Math.random()*170);
+   var randomRotation = -5 + (Math.random()*10)
+   var randomFontSize = 20 + (Math.random()*50);
+   var outputColor = "rgb(" + randomRed + "," + randomGreen + "," + randomBlue + ")";
+   outputText.style.fontSize= randomFontSize + "px";
+   outputText.style.color= outputColor;
+   outputText.style.transform = "rotate(" + randomRotation + "deg)";
+ }
